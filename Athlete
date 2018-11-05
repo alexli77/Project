@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+      <div class = "navbar-active" id = "navbar">
+        
+    <div id="navbar-Athlete" class = "navbar-button"><a href = "Index.html">Index page</a></div>
+        
+    <div id="navbar-Brand" class = "navbar-button"><a href ="Brand.html">change/view data about Brand</a></div>
+        
+    <div id="navbar-Sport" class = "navbar-button"><a href ="Sport.html">change/view data about Sport</a></div>
+    
+    <div id="navbar-Country" class = "navbar-button"><a href ="Country.html">change/view data about Country</a></div>
+
+    <div id="navbar-Contract" class = "navbar-Contract"><a href ="Contract.html">change/view data about Contract</a></div>
+    
+</body>
+    
+    
+<h3>Add new athlete:</h3>
+<form id="addathlete" action="/athlete" method="post">
+    First name: <input type="text" name="fname"><br>
+    Last name: <input type="text" name="lname"><br>
+    Gender: <input type="text" name="gender"><br>
+
+    
+    Country: <select name="Country"> 
+        {{#each countrys}}
+        <option value="{{id}}">{{Cname}}</option>
+        {{/each}}
+    </select><br>
+
+    Sport: <select name="Sport"> 
+        {{#each Sport}}
+        <option value="{{id}}">{{Sname}}</option>
+        {{/each}}
+    </select><br>
+    
+    Brand: <select name="Brand"> 
+        {{#each Sport}}
+        <option value="{{id}}">{{Bname}}</option>
+        {{/each}}
+    </select><br>
+    
+    Contract: <select name="Contract"> 
+        {{#each Sport}}
+        <option value="{{id}}">{{total}}</option>
+        {{/each}}
+    </select><br>
+    
+    
+    
+    <input type="submit" value="Submit">
+ </form>
+<br/>
+    
+    
+<h3>Current Athlete:</h3>
+<table>
+    <thead> 
+        <th>First Name</th> 
+        <th>Last Name</th> 
+        <th>Gender</th>
+        <th>Country</th>
+        <th>Sport</th>
+        <th>Brand</th>  
+        <th>Countract</th>  
+
+    </thead> 
+    <tbody> 
+        {{#each people}} 
+        <tr> 
+            <td>{{fname}}</td> 
+            <td>{{lname}}</td> 
+            <td>{{Gender}}</td> 
+            <td>{{Cname}}</td>
+            <td>{{Sname}}</td> 
+            <td>{{Bname}}</td> 
+            <td>{{total}}</td> 
+
+            
+            <td><button onclick="deleteAthlete({{id}})">Delete</button></td>
+            <td><a href="/athlete/{{id}}">Update</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+</html>
