@@ -30,8 +30,7 @@
         }
     });
 function getCountry(res, mysql, context, complete) {
-        mysql.pool.query("SELECT FROM endorse_country
-", function (error, results, fields) {
+        mysql.pool.query("SELECT * FROM endorse_country", function (error, results, fields) {
             if (error) {
                 res.write(JSON.stringify(error));
                 res.end();
