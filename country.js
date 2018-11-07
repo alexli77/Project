@@ -30,7 +30,7 @@
         }
     });
 function getCountry(res, mysql, context, complete) {
-        mysql.pool.query("SELECT country_id AS cid, cname FROM endorse_country
+        mysql.pool.query("SELECT FROM endorse_country
 ", function (error, results, fields) {
             if (error) {
                 res.write(JSON.stringify(error));
