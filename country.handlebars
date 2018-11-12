@@ -1,0 +1,56 @@
+
+<html>
+    
+ {{#each foo}}
+{{this}}
+{{/each}}   
+    
+<body>
+      <div class = "navbar-active" id = "navbar">
+        
+    <div id="navbar-Athlete" class = "navbar-button"><a href = "index.html">Main page</a></div>
+             
+    <div id="navbar-Country" class = "navbar-button"><a href ="Athlete.html">change/view data about Athlete</a></div>
+
+    <div id="navbar-Brand" class = "navbar-button"><a href ="Brand.html">change/view data about Brand</a></div>
+        
+    <div id="navbar-Sport" class = "navbar-button"><a href ="Sport.html">change/view data about Sport</a></div>
+    
+    <div id="navbar-Contract" class = "navbar-Contract"><a href ="Contract.html">change/view data about Contract</a></div>
+    
+</body>
+    
+    
+<h3>Add new Country:</h3>
+<form id="addCountry" action="/country" method="post">
+    Country name: <input type="text" name="Cname"><br>
+    
+    
+    
+    
+    <input type="submit" value="Submit">
+ </form>
+<br/>
+    
+  
+<h3>Current Country:</h3>
+<table>
+    <thead> 
+        <th>Country Name</th> 
+   
+
+    </thead> 
+    <tbody> 
+        {{#each country}} 
+        <tr> 
+            <td>{{Cname}}</td> 
+      
+
+            
+            <td><button onclick="deleteCountry({{id}})">Delete</button></td>
+            <td><a href="/country/{{id}}">Update</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+</html>
